@@ -10,7 +10,7 @@ export default function Navbar(props) {
        
       <div className='nav-right-container'>
         <Link to='/about'><h4>ABOUT</h4></Link>
-        <h4>CONTACT</h4>
+        <Link to='/contact'><h4>CONTACT</h4></Link>
       </div>
     </section>
   )

@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+form > label {
+  display: flex;
+  /* align-items: center; */
+  margin-top: 0.5rem;
+  padding-bottom: 10px;
+}
+label > span {
+ width: 4.5rem;
+}
+label > input {
+  padding-right: 6.5rem;
+}
+form > button {
+  margin-left: 4.5rem;
+}
