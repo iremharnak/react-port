@@ -3,7 +3,7 @@ import './ContactForm.css';
 
 class ContactForm extends React.Component {
   state = {
-    content: {name: '', email: '',message: '' },
+    
     name: '',
     email: '',
     message: ''
@@ -13,19 +13,25 @@ class ContactForm extends React.Component {
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
   }
-  formSubmitted = (e) => {
+  formSubmitted = async (e) => {
     e.preventDefault();
     const {name, email, message} = this.state;
     const newObj = {name, email, message};
+    console.log(newObj)
     alert(newObj)
-    fetch("http://localhost:3000/api/myAmazingRouteOnMyServer", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({customerName: this.state.customerName, email: this.state.email}) // <-- send this object to server
-      }) 
-      .then(response => response.json()) // <-- decode server response
-      .then(serverData => {console.log("Success:", serverData)}) // <-- log serverData if success
-      .catch(error => {console.error("Error:", error)}) // <-- log if error 
+    try {
+      await fetch("/api/form", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({userName: this.state.name, userEmail: this.state.email}) // <-- send this object to server
+        }) 
+        .then(response => response.json()) // <-- decode server response
+        .then(serverData => {console.log("Success:", serverData)}) // <-- log serverData if success
+        .catch(error => {console.error("Error:", error)}) // <-- log if error 
+    } catch (err){
+      console.error("Error, err")
+    }
+   
   }
   render() {
     return(
