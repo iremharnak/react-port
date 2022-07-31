@@ -1,0 +1,17 @@
+.nav-container, .nav-right-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px
+  ;
+}
+.nav-container {
+  /* max-width: 1200px; */
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 40px
+}
+.logo-container {
+  width: 10%;
+}
