@@ -13,17 +13,19 @@ class ContactForm extends React.Component {
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
   }
-  formSumbitted = (e) => {
+  formSubmitted = (e) => {
     e.preventDefault();
     const {name, email, message} = this.state;
     const newObj = {name, email, message};
-    
-    // const newContent = [...this.state.content, newObj]
-    // this.setState({
-    //   newContent
-    // })
-    console.log(newObj)
     alert(newObj)
+    fetch("http://localhost:3000/api/myAmazingRouteOnMyServer", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({customerName: this.state.customerName, email: this.state.email}) // <-- send this object to server
+      }) 
+      .then(response => response.json()) // <-- decode server response
+      .then(serverData => {console.log("Success:", serverData)}) // <-- log serverData if success
+      .catch(error => {console.error("Error:", error)}) // <-- log if error 
   }
   render() {
     return(
@@ -40,7 +42,7 @@ class ContactForm extends React.Component {
         <label><span>Message:</span>
         <textarea name="message" value={this.state.message} onChange={this.handleChange} cols="30" rows="10"></textarea>
         </label>
-        <button onClick={this.formSumbitted}>Send</button>
+        <button onClick={this.formSubmitted}>Send</button>
       </form>
       </section>
     )

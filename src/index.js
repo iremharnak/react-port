@@ -1,19 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // Importing the BrowserRouter and assigning an alias
 import { BrowserRouter as Router } from 'react-router-dom';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import {createRoot} from 'react-dom/client';
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
 root.render(
   <Router>
     <React.StrictMode>
       <App />
     </React.StrictMode>
   </Router>,
-  document.getElementById('root')
+  // document.getElementById('root')
 );
 
 
