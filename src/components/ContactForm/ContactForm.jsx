@@ -18,12 +18,12 @@ class ContactForm extends React.Component {
     const {name, email, message} = this.state;
     const newObj = {name, email, message};
     console.log(newObj)
-    alert(newObj)
+    // alert(newObj)
     try {
-      await fetch("/api/form", {
+      await fetch("http://localhost:3000/api/form", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({userName: this.state.name, userEmail: this.state.email}) // <-- send this object to server
+        body: JSON.stringify({name: this.state.name, email: this.state.email, message: this.state.message}) // <-- send this object to server
         }) 
         .then(response => response.json()) // <-- decode server response
         .then(serverData => {console.log("Success:", serverData)}) // <-- log serverData if success
