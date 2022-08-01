@@ -28,6 +28,7 @@ class ContactForm extends React.Component {
         .then(response => response.json()) // <-- decode server response
         .then(serverData => {console.log("Success:", serverData)}) // <-- log serverData if success
         .catch(error => {console.error("Error:", error)}) // <-- log if error 
+        this.setState({name: '', email: '', message: '',})
     } catch (err){
       console.error("Error, err")
     }

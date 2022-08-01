@@ -5,7 +5,9 @@ export default function Navbar(props) {
   return (
     <section className='nav-container'>
       <Link to='/home'>
-        <h4>HOME</h4>
+      <div className='logo-container'>
+          <img src="./irem-logo-black-2020.svg" alt="" />
+        </div>
       </Link>
        
       <div className='nav-right-container'>
