@@ -20,7 +20,6 @@ class Blog extends React.Component {
       this.setState({posts: post2})
     } catch(err) {
       console.log("couldn't fetch posts")
-
     }
   }
   render() {
