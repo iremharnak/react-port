@@ -1,4 +1,4 @@
-const Post = require('../../models/Post');
+const PostModel = require('../../models/Post');
 
 module.exports = {
     index,
@@ -19,12 +19,15 @@ async function index(req, res) {
 
 async function create(req, res) {
     try {
+        console.log("Backend working")
       // 1. Create a post in the database (the data will be incoming via `req.body`)
         await PostModel.create({content: req.body.content})
+        
      // 2. use res.json() to send a response to the frontend
-        req.status(200).json('ok. Post added to DB!')
+        res.status(200).json('ok. Post added to DB!')
         console.log("incoming Post data:", req.body)
     } catch(err) {
+        console.log(err);
         res.json(err);
     }
 }

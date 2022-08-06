@@ -11,7 +11,12 @@ class Blog extends React.Component {
     this.getPosts()
   }
   getPosts = async () => {
-    await fetch('/api/post').then((res) => res.json()).then(data => this.setState({posts: data}))
+    // await fetch('/api/post').then((res) => res.json()).then(data => this.setState({posts: data}))
+    try {
+      let posts1 = await fetch("/api/post")
+      let posts2 = await posts1.json()
+      this.setPosts
+    }
   }
   render() {
     return(
@@ -28,7 +33,9 @@ class Blog extends React.Component {
             <h1>No Posts</h1>
             }
           
-          <PostForm />
+          <PostForm 
+            getPosts={this.getPosts}
+          />
 
       </>
     )

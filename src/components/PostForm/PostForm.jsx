@@ -20,7 +20,7 @@ export default class Postform extends Component {
       },
       body: JSON.stringify(body)
     };
-    await fetch('/api', options)
+    await fetch('/api/post', options)
       .then(res => res.json())
       .then(data => {
         // call our getPosts fuction to get fresh data
