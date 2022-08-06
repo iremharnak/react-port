@@ -13,9 +13,14 @@ class Blog extends React.Component {
   getPosts = async () => {
     // await fetch('/api/post').then((res) => res.json()).then(data => this.setState({posts: data}))
     try {
-      let posts1 = await fetch("/api/post")
-      let posts2 = await posts1.json()
-      this.setPosts
+      let post1 = await fetch('/api/post')
+      console.log(post1)
+      let post2 = await post1.json()
+      console.log(post2)
+      this.setState({posts: post2})
+    } catch(err) {
+      console.log("couldn't fetch posts")
+
     }
   }
   render() {

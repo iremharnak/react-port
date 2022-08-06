@@ -8,7 +8,7 @@ module.exports = {
 async function index(req, res) {
     try {
      // 1. Get all Posts from the database
-     const posts = await Post.find()
+     const posts = await PostModel.find()
     // 2. Use res.json() to send the posts to the frontend
      res.json(posts);
     } catch(err) {
